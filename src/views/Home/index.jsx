@@ -1,8 +1,8 @@
 import { Stack, Typography } from "@mui/material";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ButtonSend from "../components/buttonSend";
-import NumeredBoxList from "../components/numeredList"
+import NumeredBoxList from "../components/numeredList";
+import useRatingStore from "../../store/useRatingStore";
 
 /**
  * Home renders a page with a question asking the user to rate from 0 to 10 how
@@ -15,7 +15,9 @@ import NumeredBoxList from "../components/numeredList"
  */
 function Home() {
   const navigation = useNavigate();
-  const [selectedNumber, setSelectedNumber] = useState(null);
+  const rating = useRatingStore((state) => state.rating);
+  const setRating = useRatingStore((state) => state.setRating);
+
 
   return (
     <Stack>
@@ -38,14 +40,14 @@ function Home() {
           justifyContent: "center",
         }}
       >
-        <NumeredBoxList onSelect={(number) => setSelectedNumber(number)} />
+        <NumeredBoxList onSelect={setRating} />
       </Stack>
 
       <Stack sx={{ alignItems: "center", paddingTop: 4 }}>
         <ButtonSend
           color="rgba(25, 118, 210)"
           onClick={() => {
-            navigation("/Stars");
+            rating != null ? navigation("/Stars") : null;
           }}
         ></ButtonSend>
       </Stack>
