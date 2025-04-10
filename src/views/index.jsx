@@ -47,7 +47,7 @@ function Home() {
         <ButtonSend
           color="rgba(25, 118, 210)"
           onClick={() => {
-            rating != null ? navigation("/Stars") : null;
+            rating != null ? navigation("/StarRating") : null;
           }}
         ></ButtonSend>
       </Stack>

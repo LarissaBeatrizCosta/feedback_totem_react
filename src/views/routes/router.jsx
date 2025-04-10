@@ -1,11 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./protectedRoute";
 import Home from "../index";
-import Stars from "../stars";
+import StarRating from "../starRatingPage";
 export default function AppRouter() {
   return (
     <Routes>
-      {/* rota inicial */}
       <Route path="/" element={<Home />} />
       <Route
         path="/"
@@ -16,10 +15,10 @@ export default function AppRouter() {
         }
       />
       <Route
-        path="/Stars"
+        path="/StarRating"
         element={
           <ProtectedRoute>
-            <Stars />
+            <StarRating />
           </ProtectedRoute>
         }
       />
