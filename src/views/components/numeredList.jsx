@@ -9,10 +9,10 @@ import useRatingStore from "../../store/useRatingStore";
  * @returns {JSX.Element} A row of boxes with numbers from 1 to 10.
  */
 function NumeredBoxList() {
-  const { rating, setRating } = useRatingStore();
+  const { recommendationRating, setRecommendationRating: setRecommendationRating } = useRatingStore();
 
   const handleClick = (selectedRating) => {
-    setRating(selectedRating);
+    setRecommendationRating(selectedRating);
   };
 
   return (
@@ -21,7 +21,7 @@ function NumeredBoxList() {
         <NumeredBox
           key={num}
           number={num}
-          isSelected={rating === num}
+          isSelected={recommendationRating === num}
           onClick={() => handleClick(num)}
         />
       ))}

@@ -15,9 +15,12 @@ import useRatingStore from "../store/useRatingStore";
  */
 function Home() {
   const navigation = useNavigate();
-  const rating = useRatingStore((state) => state.rating);
-  const setRating = useRatingStore((state) => state.setRating);
-
+  const recommendationRating = useRatingStore(
+    (state) => state.recommendationRating
+  );
+  const setRecommendationRating = useRatingStore(
+    (state) => state.setRecommendationRating
+  );
 
   return (
     <Stack>
@@ -40,14 +43,14 @@ function Home() {
           justifyContent: "center",
         }}
       >
-        <NumeredBoxList onSelect={setRating} />
+        <NumeredBoxList onSelect={setRecommendationRating} />
       </Stack>
 
       <Stack sx={{ alignItems: "center", paddingTop: 4 }}>
         <ButtonSend
           color="rgba(25, 118, 210)"
           onClick={() => {
-            rating != null ? navigation("/StarRating") : null;
+            recommendationRating != null ? navigation("/StarRating") : null;
           }}
         ></ButtonSend>
       </Stack>
