@@ -1,8 +1,8 @@
 import { Stack, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import ButtonSend from "../components/buttonSend";
-import NumeredBoxList from "../components/numeredList";
-import useRatingStore from "../../store/useRatingStore";
+import ButtonSend from "./components/buttonSend";
+import NumeredBoxList from "./components/numeredList";
+import useRatingStore from "../store/useRatingStore";
 
 /**
  * Home renders a page with a question asking the user to rate from 0 to 10 how
