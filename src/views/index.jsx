@@ -50,6 +50,7 @@ function Home() {
         <ButtonSend
           color="rgba(25, 118, 210)"
           onClick={() => {
+            console.log(recommendationRating);
             recommendationRating != null ? navigation("/StarRating") : null;
           }}
         ></ButtonSend>

@@ -17,36 +17,50 @@ import useRatingStore from "../store/useRatingStore";
 export default function StarRating() {
   const navigation = useNavigate();
 
-  const environmentRating = useRatingStore((state) => state.environmentRating);
+  const environmentRating = useRatingStore((state) => state.starEnvironmentRating);
   const collaboratorRating = useRatingStore(
-    (state) => state.collaboratorRating
+    (state) => state.starCollaboratorRating
   );
-  const timeRating = useRatingStore((state) => state.timeRating);
+  const timeRating = useRatingStore((state) => state.starTimeRating);
 
   const setEnvironmentRating = useRatingStore(
-    (state) => state.setEnvironmentRating
+    (state) => state.setStarEnvironmentRating
   );
   const setCollaboratorRating = useRatingStore(
-    (state) => state.setCollaboratorRating
+    (state) => state.setStarCollaboratorRating
   );
-  const setTimeRating = useRatingStore((state) => state.setTimeRating);
+  const setTimeRating = useRatingStore((state) => state.setStarTimeRating);
 
   return (
     <Stack spacing={2} sx={{ alignItems: "center", margin: 10 }}>
       <Typography sx={{ typography: "h1" }}>
         Ambiente do Posto de Atendimento
       </Typography>
-      <StarsRow value={environmentRating} onChange={setEnvironmentRating} />
+      <StarsRow value={environmentRating} onChange={(e) => setEnvironmentRating(e.target.value)} />
 
       <Typography sx={{ typography: "h1" }}>
         Atendimento dos colaboradores
       </Typography>
-      <StarsRow value={collaboratorRating} onChange={setCollaboratorRating} />
+      <StarsRow value={collaboratorRating} onChange={(e) => setCollaboratorRating(e.target.value)} />
 
       <Typography sx={{ typography: "h1" }}>Tempo de Espera</Typography>
-      <StarsRow value={timeRating} onChange={setTimeRating} />
+      <StarsRow value={timeRating} onChange={(e) => setTimeRating(e.target.value)} />
 
-      <ButtonSend color="#cca926" onClick={() => {}} />
+      <ButtonSend
+        color="#cca926"
+        onClick={() => {
+          console.log(environmentRating);
+          console.log(collaboratorRating);
+          console.log(timeRating);
+          if (
+            environmentRating !== null &&
+            collaboratorRating !== null &&
+            timeRating !== null
+          ) {
+            navigation("/");
+          }
+        }}
+      />
     </Stack>
   );
 }

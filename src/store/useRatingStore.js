@@ -12,32 +12,20 @@ const useRatingStore = create((set) => ({
    * @param {number} newRecommendationRating - The new recommendation rating to be set.
    */
 
-  /**
-   * Updates the recommendation rating in the store.
-   *
-   * @param {number} newRecommendationRating - The new recommendation rating to be set.
-   */
-  setRecommendationRating: (newRecommendationRating) =>
-    set({ recommendationRating: newRecommendationRating }),
 
-  /**
-   * Updates the star rating of the environment in the store.
-   *
-   * @param {number} newStarRating - The new star rating of the environment to be set.
-   */
-  setStarEnvironmentRating: (newStarEnvironmentRating) =>
-    set({ starEnvironmentRating: newStarEnvironmentRating }),
+  setRecommendationRating: (value) =>
+    set({ recommendationRating: value }),
 
-  /**
-   * Updates the star rating of the collaborator in the store.
-   *
-   * @param {number} newStarRating - The new star rating of the collaborator to be set.
-   */
-  setStarCollaboratorRating: (newStarCollaboratorRating) =>
-    set({ starCollaboratorRating: newStarCollaboratorRating }),
 
-  setStarTimeRating: (newStarTimeRating) =>
-    set({ starTimeRating: newStarTimeRating }),
+  setStarEnvironmentRating: (value) =>
+    set((state) => ({starEnvironmentRating: value })),
+
+
+  setStarCollaboratorRating: (value) =>
+    set({ starCollaboratorRating: value }),
+
+  setStarTimeRating: (value) =>
+    set({ starTimeRating: value }),
 }));
 
 export default useRatingStore;
