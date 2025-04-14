@@ -17,7 +17,9 @@ import useRatingStore from "../store/useRatingStore";
 export default function StarRating() {
   const navigation = useNavigate();
 
-  const environmentRating = useRatingStore((state) => state.starEnvironmentRating);
+  const environmentRating = useRatingStore(
+    (state) => state.starEnvironmentRating
+  );
   const collaboratorRating = useRatingStore(
     (state) => state.starCollaboratorRating
   );
@@ -36,17 +38,27 @@ export default function StarRating() {
       <Typography sx={{ typography: "h1" }}>
         Ambiente do Posto de Atendimento
       </Typography>
-      <StarsRow value={environmentRating} onChange={(e) => setEnvironmentRating(e.target.value)} />
+      <StarsRow
+        value={environmentRating}
+        onChange={(e) => setEnvironmentRating(e.target.value)}
+      />
 
       <Typography sx={{ typography: "h1" }}>
         Atendimento dos colaboradores
       </Typography>
-      <StarsRow value={collaboratorRating} onChange={(e) => setCollaboratorRating(e.target.value)} />
+      <StarsRow
+        value={collaboratorRating}
+        onChange={(e) => setCollaboratorRating(e.target.value)}
+      />
 
       <Typography sx={{ typography: "h1" }}>Tempo de Espera</Typography>
-      <StarsRow value={timeRating} onChange={(e) => setTimeRating(e.target.value)} />
+      <StarsRow
+        value={timeRating}
+        onChange={(e) => setTimeRating(e.target.value)}
+      />
 
       <ButtonSend
+        text={"Enviar"}
         color="#cca926"
         onClick={() => {
           console.log(environmentRating);
@@ -57,7 +69,7 @@ export default function StarRating() {
             collaboratorRating !== null &&
             timeRating !== null
           ) {
-            navigation("/");
+            navigation("/UserCpf");
           }
         }}
       />

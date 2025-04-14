@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 
-export default function ButtonSend({ color, onClick }) {
+export default function ButtonSend({ color, onClick, text }) {
   return (
     <Button
     onClick={onClick}
@@ -13,7 +13,7 @@ export default function ButtonSend({ color, onClick }) {
         fontWeight: "bold",
       }}
     >
-      Enviar
+      {text}
     </Button>
   );
 }

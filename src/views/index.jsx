@@ -48,9 +48,9 @@ function Home() {
 
       <Stack sx={{ alignItems: "center", paddingTop: 4 }}>
         <ButtonSend
+          text={"Enviar"}
           color="rgba(25, 118, 210)"
           onClick={() => {
-            console.log(recommendationRating);
             recommendationRating != null ? navigation("/StarRating") : null;
           }}
         ></ButtonSend>

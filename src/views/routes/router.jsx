@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./protectedRoute";
 import Home from "../index";
 import StarRating from "../starRatingPage";
+import UserCpf from "../userCpf";
 export default function AppRouter() {
   return (
     <Routes>
@@ -19,6 +20,14 @@ export default function AppRouter() {
         element={
           <ProtectedRoute>
             <StarRating />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/UserCpf"
+        element={
+          <ProtectedRoute>
+            <UserCpf />
           </ProtectedRoute>
         }
       />
