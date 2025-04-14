@@ -4,6 +4,8 @@ import Home from "../index";
 import StarRating from "../starRatingPage";
 import UserCpf from "../userCpf";
 import Feedback from "../feedback";
+import RegisterCpf from "../registerCpf";
+
 export default function AppRouter() {
   return (
     <Routes>
@@ -37,6 +39,14 @@ export default function AppRouter() {
         element={
           <ProtectedRoute>
             <Feedback />
+          </ProtectedRoute>
+        }
+      />
+        <Route
+        path="/RegisterCpf"
+        element={
+          <ProtectedRoute>
+            <RegisterCpf/>
           </ProtectedRoute>
         }
       />

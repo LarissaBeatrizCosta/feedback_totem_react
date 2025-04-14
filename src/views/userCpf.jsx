@@ -14,7 +14,7 @@ export default function UserCpf() {
         <ButtonSend
           text={"SIM"}
           onClick={() => {
-            navigate("/");
+            navigate("/RegisterCpf");
           }}
           color={"#006400"}
         ></ButtonSend>
