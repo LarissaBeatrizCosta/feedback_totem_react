@@ -21,7 +21,7 @@ export default function UserCpf() {
         <ButtonSend
           text={"NÃO"}
           onClick={() => {
-            navigate("/");
+            navigate("/Feedback");
           }}
           color={"#cca926"}
         ></ButtonSend>

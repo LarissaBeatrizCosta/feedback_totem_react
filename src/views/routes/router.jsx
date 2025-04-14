@@ -3,6 +3,7 @@ import ProtectedRoute from "./protectedRoute";
 import Home from "../index";
 import StarRating from "../starRatingPage";
 import UserCpf from "../userCpf";
+import Feedback from "../feedback";
 export default function AppRouter() {
   return (
     <Routes>
@@ -28,6 +29,14 @@ export default function AppRouter() {
         element={
           <ProtectedRoute>
             <UserCpf />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/Feedback"
+        element={
+          <ProtectedRoute>
+            <Feedback />
           </ProtectedRoute>
         }
       />

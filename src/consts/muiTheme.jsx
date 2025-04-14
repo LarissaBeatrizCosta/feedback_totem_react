@@ -1,19 +1,28 @@
-import { createTheme } from "@mui/material"
+import { createTheme } from "@mui/material";
 
-const bold = '550'
-const medium = '400'
+const bold = "550";
+const medium = "400";
 
 export const materialTheme = createTheme({
-    
-        typography:{
-            h1: {
-                fontSize: '38px',
-                fontWeight:bold,
-            },   
-            h2: {
-                fontSize: '25px',
-                fontWeight: medium,
-            }, 
-        }
-    
-}) 
+  typography: {
+    h1: {
+      fontSize: "38px",
+      fontWeight: bold,
+    },
+    h2: {
+      fontSize: "25px",
+      fontWeight: medium,
+    },
+    h1Gray: {
+      fontSize: "150px",
+      fontWeight: bold,
+      color: "#808080",
+    },
+
+    h2Yellow: {
+      fontSize: "25px",
+      fontWeight: medium,
+      color: "#f4d03f",
+    },
+  },
+});
