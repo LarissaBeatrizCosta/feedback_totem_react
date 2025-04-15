@@ -9,7 +9,7 @@ export default function CpfButtonInput({ text, onClick }) {
         fontSize: "30px",
         color: "white",
         width: "70%",
-        height: "60%",
+        height: "65%",
         borderRadius: "8px",
         fontWeight: "bold",
       }}

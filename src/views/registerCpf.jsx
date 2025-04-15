@@ -2,21 +2,37 @@ import { Stack } from "@mui/material";
 import ButtonSend from "./components/buttonSend";
 import CpfInput from "./components/cpfInput";
 import { useNavigate } from "react-router-dom";
-import useStarsStore from "../store/useStarsStore";
-
+import useRegisterCpf from "../store/useRegisterCpf";
+import AlertDialog from "./components/dialogs";
+import { useState } from "react";
+import isValidCpf from "../utils/validCpf";
 
 export default function RegisterCpf() {
   const navigate = useNavigate();
-  const cpf = useStarsStore((state) => state.cpfUser);
+  const cpf = useRegisterCpf((state) => state.cpfUser);
+  const [showAlert, setShowALert] = useState(false);
+
+  const handleClick = () => {
+    if (cpf !== "" && isValidCpf(cpf)) {
+      navigate("/");
+    } else {
+      setShowALert(true);
+      setTimeout(() => {
+        setShowALert(false);
+      }, 4000);
+    }
+  };
 
   return (
     <Stack sx={{ gap: 4, alignItems: "center", paddingTop: 8 }}>
       <CpfInput></CpfInput>
+      {showAlert && <AlertDialog text={"Por favor, Digite um CPF válido!"}></AlertDialog>}
+
       <ButtonSend
         text={"ENVIAR"}
         color={"#cca926"}
         onClick={() => {
-          cpf != null ? navigate("/"): null;
+          handleClick();
         }}
       ></ButtonSend>
     </Stack>

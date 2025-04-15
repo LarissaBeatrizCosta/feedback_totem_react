@@ -3,16 +3,9 @@ import { useNavigate } from "react-router-dom";
 import ButtonSend from "./components/buttonSend";
 import NumeredBoxList from "./components/numeredList";
 import useRatingStore from "../store/useRatingStore";
+import AlertDialog from "./components/dialogs";
+import { useState } from "react";
 
-/**
- * Home renders a page with a question asking the user to rate from 0 to 10 how
- * much they would recommend today's experience to friends and family.
- *
- * It renders a heading with the question and a row of boxes with numbers from 1
- * to 10. The boxes are rendered using the NumeredBox component.
- *
- * @returns {React.ReactElement} The component to be rendered.
- */
 function Home() {
   const navigation = useNavigate();
   const recommendationRating = useRatingStore(
@@ -21,6 +14,18 @@ function Home() {
   const setRecommendationRating = useRatingStore(
     (state) => state.setRecommendationRating
   );
+
+  const [showAlert, setShowALert] = useState(false);
+
+  const handleClick = () => {
+    recommendationRating != null
+      ? navigation("/StarRating")
+      : setShowALert(true);
+  };
+
+  setTimeout(() => {
+    setShowALert(false);
+  }, 4000);
 
   return (
     <Stack>
@@ -46,12 +51,14 @@ function Home() {
         <NumeredBoxList onSelect={setRecommendationRating} />
       </Stack>
 
+      {showAlert && <AlertDialog text={"Escolha um valor"}></AlertDialog>}
+
       <Stack sx={{ alignItems: "center", paddingTop: 4 }}>
         <ButtonSend
           text={"Enviar"}
           color="rgba(25, 118, 210)"
           onClick={() => {
-            recommendationRating != null ? navigation("/StarRating") : null;
+            handleClick();
           }}
         ></ButtonSend>
       </Stack>

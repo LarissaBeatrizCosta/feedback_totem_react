@@ -3,17 +3,9 @@ import { useNavigate } from "react-router-dom";
 import StarsRow from "./components/starsRow";
 import ButtonSend from "./components/buttonSend";
 import useRatingStore from "../store/useStarsStore";
+import { useState } from "react";
+import AlertDialog from "./components/dialogs";
 
-/**
- * StarRating renders a page with multiple questions asking the user to rate from 0 to 10 about:
- * - Ambiente do Posto de Atendimento
- * - Atendimento dos colaboradores
- * - Tempo de Espera
- *
- * It renders a heading with the question and a row of stars (1 to 10). The stars are rendered using the StarsRow component.
- *
- * @returns {React.ReactElement} The component to be rendered.
- */
 export default function StarRating() {
   const navigation = useNavigate();
 
@@ -32,6 +24,23 @@ export default function StarRating() {
     (state) => state.setStarCollaboratorRating
   );
   const setTimeRating = useRatingStore((state) => state.setStarTimeRating);
+
+  const [showAlert, setShowALert] = useState(false);
+
+  const handleClick = () => {
+    if (
+      environmentRating !== null &&
+      collaboratorRating !== null &&
+      timeRating !== null
+    ) {
+      navigation("/UserCpf");
+    } else {
+      setShowALert(true);
+      setTimeout(() => {
+        setShowALert(false);
+      }, 4000);
+    }
+  };
 
   return (
     <Stack spacing={2} sx={{ alignItems: "center", margin: 10 }}>
@@ -56,21 +65,13 @@ export default function StarRating() {
         value={timeRating}
         onChange={(e) => setTimeRating(e.target.value)}
       />
+      {showAlert && <AlertDialog text={'Escolha uma nota de 1 a 5'}></AlertDialog>}
 
       <ButtonSend
         text={"Enviar"}
         color="#cca926"
         onClick={() => {
-          console.log(environmentRating);
-          console.log(collaboratorRating);
-          console.log(timeRating);
-          if (
-            environmentRating !== null &&
-            collaboratorRating !== null &&
-            timeRating !== null
-          ) {
-            navigation("/UserCpf");
-          }
+          handleClick();
         }}
       />
     </Stack>
