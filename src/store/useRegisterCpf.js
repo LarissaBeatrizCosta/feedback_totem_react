@@ -1,24 +1,24 @@
 import { create } from "zustand";
 import { formatCpf } from "../utils/cpfFormatter";
 
-const useRegisterCpf = create((set) => ({
-  cpfUser: null,
+const useRegisterCpf = create((set, get) => ({
+  cpfUser: "",
 
-  setCpfUser: (value) => set({ cpfUser: value }),
-
-  getCpf: (value) => {
-    const digitsOnly = get().cpfText.replace(/\D/g, "") + value;
+  setCpfUser: (value) => {
+    console.log("value")
+    console.log(value)
+    const digitsOnly = get().cpfUser.replace(/\D/g, "") + value;
     let formattedCpf = formatCpf(digitsOnly);
 
-    set({ cpfText: formattedCpf });
+    set({ cpfUser: formattedCpf });
   },
 
-  deleteDigit: (value) => {
-    const digitsOnly = get().cpfText.replace(/\D/g, "") + value;
+  deleteDigit: () => {
+    const digitsOnly = get().cpfUser.replace(/\D/g, "");
     const newCpf = digitsOnly.substring(0, digitsOnly.length - 1);
     let formattedCpf = formatCpf(newCpf);
 
-    set({ cpfText: formattedCpf });
+    set({ cpfUser: formattedCpf });
   },
 }));
 

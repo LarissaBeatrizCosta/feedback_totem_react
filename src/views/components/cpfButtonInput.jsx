@@ -3,9 +3,7 @@ import { Button } from "@mui/material";
 export default function CpfButtonInput({ text, onClick }) {
   return (
     <Button
-      onClick={() => {
-        onClick;
-      }}
+      onClick={onClick}
       sx={{
         backgroundColor: "#1E6F9F",
         fontSize: "30px",

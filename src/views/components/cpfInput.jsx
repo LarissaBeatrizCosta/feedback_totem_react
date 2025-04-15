@@ -19,9 +19,7 @@ export default function CpfInput() {
 
   const cpfValue = useRegisterCpf((state) => state.cpfUser);
 
-  const setCpf = useRegisterCpf((state) => state.setCpfUser);
-
-  const getCpf = useRegisterCpf((state) => state.getCpf);
+  const setCpfUser = useRegisterCpf((state) => state.setCpfUser);
 
   const deleteDigiteCpf = useRegisterCpf((state) => state.deleteDigit);
 
@@ -29,11 +27,11 @@ export default function CpfInput() {
     <Container
       style={{
         border: "4px solid #1E6F9F",
-        height: "50vh",
-        width: "70vh",
+        height: "45vh",
+        width: "60vh",
         borderRadius: "20px",
         padding: 0,
-        paddingTop: 50,
+        paddingTop: 5,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -42,11 +40,25 @@ export default function CpfInput() {
       <TextField
         fullWidth
         variant="standard"
+        value={cpfValue}
+        sx={{
+          "& .MuiInput-input": {
+            textAlign: "right",
+          },
+        }}
         slotProps={{
           input: {
             readOnly: true,
             disableUnderline: true,
-            style: { borderBottom: "4px solid #1E6F9F" },
+            style: {
+              borderBottom: "4px solid #1E6F9F",
+              paddingRight: "20px",
+              textAlign: "right",
+              fontSize: "40px",
+              fontWeight: "bold",
+              color:"#1E6F9F",
+
+            },
           },
         }}
       />
@@ -65,7 +77,7 @@ export default function CpfInput() {
           <CpfButtonInput
             text={button}
             onClick={() => {
-              button == "⌫" ? deleteDigiteCpf(button): getCpf(button)
+              button === "⌫" ? deleteDigiteCpf() : setCpfUser(button);
             }}
           />
         ))}
