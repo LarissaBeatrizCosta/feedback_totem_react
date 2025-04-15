@@ -41,19 +41,21 @@ export default function UserCpf() {
       </Typography>
       <Box sx={{ display: "flex", gap: 8 }}>
         <ButtonSend
-          text={"SIM"}
+          text={"Sim"}
           onClick={() => {
             navigate("/RegisterCpf");
           }}
-          color={"#006400"}
+          fontSize={"30px"}
+          color={"#4CAF50"}
         ></ButtonSend>
         <ButtonSend
-          text={"NÃO"}
+          text={"Não"}
           onClick={() => {
             handleCLick();
             navigate("/Feedback");
           }}
-          color={"#cca926"}
+          fontSize={"30px"}
+          color={"#FFA726"}
         ></ButtonSend>
       </Box>
     </Stack>

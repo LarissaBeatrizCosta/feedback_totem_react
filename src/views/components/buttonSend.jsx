@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 
-export default function ButtonSend({ color, onClick, text, width, height }) {
+export default function ButtonSend({ color, onClick, text, width, height, fontSize }) {
   return (
     <Button
       onClick={onClick}
@@ -12,7 +12,7 @@ export default function ButtonSend({ color, onClick, text, width, height }) {
         height: height || "50px",
         borderRadius: "20px",
         fontWeight: "bold",
-        fontSize: "14px",
+        fontSize: {fontSize} || "14px",
       }}
     >
       {text}

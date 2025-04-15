@@ -19,6 +19,14 @@ export default function Comment() {
   const cpf = useRegisterCpf((state) => state.cpfUser);
   const comment = useCommentStore((state) => state.comment);
   const setListRatings = useTotalRatings((state) => state.setTotalRatingsList);
+  const list = useTotalRatings((state) => state.totalRatings);
+
+  const printItems = () => {
+    console.log("Itens na lista totalRatings:");
+    list.forEach((item, index) => {
+      console.log(`Índice ${index}:`, item);
+    });
+  };
 
   const handleCLick = () => {
     const finalRating = new RateModel({
@@ -36,6 +44,10 @@ export default function Comment() {
 
   return (
     <Stack>
+      <div>
+        <h1>Lista de Avaliações</h1>
+        <button onClick={printItems}>Imprimir Itens</button>
+      </div>{" "}
       <Box
         sx={{ display: "flex", justifyContent: "flex-end", marginTop: "8%" }}
       >
@@ -49,7 +61,6 @@ export default function Comment() {
           }}
         />
       </Box>
-
       <Stack sx={{ alignItems: "center" }}>
         <Typography sx={{ typography: "h0" }}>Deixe seu comentário</Typography>
 
