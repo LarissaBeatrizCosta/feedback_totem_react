@@ -2,7 +2,7 @@ import { Stack } from "@mui/material";
 import ButtonSend from "./components/buttonSend";
 import CpfInput from "./components/cpfInput";
 import { useNavigate } from "react-router-dom";
-import useRegisterCpf from "../store/useRegisterCpf";
+import useRegisterCpf from "../store/useRegisterCpfStore";
 import AlertDialog from "./components/dialogs";
 import { useState } from "react";
 import isValidCpf from "../utils/validCpf";

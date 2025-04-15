@@ -1,6 +1,6 @@
 import { Container, TextField, Grid } from "@mui/material";
 import CpfButtonInput from "../components/cpfButtonInput";
-import useRegisterCpf from "../../store/useRegisterCpf";
+import useRegisterCpf from "../../store/useRegisterCpfStore";
 
 export default function CpfInput() {
   const buttonsCpfInput = [
