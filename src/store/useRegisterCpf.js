@@ -5,8 +5,6 @@ const useRegisterCpf = create((set, get) => ({
   cpfUser: "",
 
   setCpfUser: (value) => {
-    console.log("value")
-    console.log(value)
     const digitsOnly = get().cpfUser.replace(/\D/g, "") + value;
     let formattedCpf = formatCpf(digitsOnly);
 

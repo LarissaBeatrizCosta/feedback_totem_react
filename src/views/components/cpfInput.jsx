@@ -56,8 +56,7 @@ export default function CpfInput() {
               textAlign: "right",
               fontSize: "40px",
               fontWeight: "bold",
-              color:"#1E6F9F",
-
+              color: "#1E6F9F",
             },
           },
         }}
@@ -66,21 +65,37 @@ export default function CpfInput() {
       <Grid
         container
         style={{
+          paddingLeft: "40px",
           marginTop: 20,
-          justifyContent: "flex-end",
           display: "grid",
           gridTemplateColumns: "repeat(3, 150px)",
           alignItems: "center",
         }}
       >
-        {buttonsCpfInput.map((button) => (
-          <CpfButtonInput
-            text={button}
-            onClick={() => {
-              button === "⌫" ? deleteDigiteCpf() : setCpfUser(button);
-            }}
-          />
-        ))}
+        {buttonsCpfInput.map((button, index) => {
+          if (index === buttonsCpfInput.length - 2) {
+            return (
+              <>
+                <div style={{ visibility: "hidden" }}></div>
+                <CpfButtonInput
+                  text={button}
+                  onClick={() => {
+                    button === "⌫" ? deleteDigiteCpf() : setCpfUser(button);
+                  }}
+                />
+              </>
+            );
+          }
+          return (
+            <CpfButtonInput
+              key={index}
+              text={button}
+              onClick={() => {
+                button === "⌫" ? deleteDigiteCpf() : setCpfUser(button);
+              }}
+            />
+          );
+        })}
       </Grid>
     </Container>
   );
