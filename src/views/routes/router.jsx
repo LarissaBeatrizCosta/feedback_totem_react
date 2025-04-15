@@ -5,6 +5,7 @@ import StarRating from "../starRatingPage";
 import UserCpf from "../userCpf";
 import Feedback from "../feedback";
 import RegisterCpf from "../registerCpf";
+import Comment from "../comment";
 
 export default function AppRouter() {
   return (
@@ -50,7 +51,14 @@ export default function AppRouter() {
           </ProtectedRoute>
         }
       />
-      {/* <Route path="*" element={<NotFound />} /> */}
+       <Route
+        path="/Comment"
+        element={
+          <ProtectedRoute>
+            <Comment/>
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   );
 }

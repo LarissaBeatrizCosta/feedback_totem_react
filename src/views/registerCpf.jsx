@@ -14,7 +14,7 @@ export default function RegisterCpf() {
 
   const handleClick = () => {
     if (cpf !== "" && isValidCpf(cpf)) {
-      navigate("/");
+      navigate("/Comment");
     } else {
       setShowALert(true);
       setTimeout(() => {

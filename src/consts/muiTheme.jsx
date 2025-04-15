@@ -5,6 +5,10 @@ const medium = "400";
 
 export const materialTheme = createTheme({
   typography: {
+    h0: {
+      fontSize: "58px",
+      fontWeight: bold,
+    },
     h1: {
       fontSize: "38px",
       fontWeight: bold,
