@@ -2,7 +2,7 @@ import { Stack, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import StarsRow from "./components/starsRow";
 import ButtonSend from "./components/buttonSend";
-import useRatingStore from "../store/useRatingStore";
+import useRatingStore from "../store/useStarsStore";
 
 /**
  * StarRating renders a page with multiple questions asking the user to rate from 0 to 10 about:
