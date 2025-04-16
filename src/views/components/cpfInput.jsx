@@ -29,7 +29,7 @@ export default function CpfInput() {
         border: "4px solid #1E6F9F",
         height: "45vh",
         width: "60vh",
-        borderRadius: "20px",
+        borderRadius: "40px",
         padding: 0,
         paddingTop: 5,
         display: "flex",
