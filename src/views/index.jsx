@@ -31,7 +31,7 @@ function Home() {
     <Stack>
       <Typography
         sx={{
-          paddingTop: 25,
+          paddingTop: 20,
           typography: "h1",
           textAlign: "start",
           paddingBottom: 4,
