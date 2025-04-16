@@ -36,16 +36,17 @@ export default function UserCpf() {
 
   return (
     <Stack sx={{ alignItems: "center" }}>
-      <Typography sx={{ typography: "h1", paddingBottom: 4 }}>
+      <Typography sx={{ typography: "h0", paddingBottom: 4 }}>
         Gostaria de informar o seu CPF?
       </Typography>
       <Box sx={{ display: "flex", gap: 8 }}>
         <ButtonSend
           text={"Sim"}
+          height={"80%"}
           onClick={() => {
             navigate("/RegisterCpf");
           }}
-          fontSize={"30px"}
+          fontSize={"40px"}
           color={"#4CAF50"}
         ></ButtonSend>
         <ButtonSend
@@ -54,7 +55,8 @@ export default function UserCpf() {
             handleCLick();
             navigate("/Feedback");
           }}
-          fontSize={"30px"}
+          height={"80%"}
+          fontSize={"40px"}
           color={"#FFA726"}
         ></ButtonSend>
       </Box>

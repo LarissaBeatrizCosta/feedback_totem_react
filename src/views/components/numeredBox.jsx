@@ -1,27 +1,25 @@
 import { Box, Button, Typography } from "@mui/material";
 
-/**
- * NumeredBox renders a button with a numerical value and a background color based
- * on the rating (low, medium, high).
- *
- * @param {{ number: number, isSelected: boolean, onClick: function }} props
- *
- * @returns {React.ReactElement} The component to be rendered.
- */
 function NumeredBox({ number, isSelected, onClick }) {
   const colorMap = {
-    low: "red",
-    medium: "#f4d03f",
-    high: "green",
+    0: "#5A2318",
+    1: "#A12017",
+    2: "#E74C3C",
+    3: "#F36B22",
+    4: "#F89E1B",
+    5: "#FCD43E",
+    6: "#FFE349",
+    7: "#B9D74B",
+    8: "#C9D985",
+    9: "#4BA048",
+    10: "#0B8C4C",
   };
-
-  const color = number < 6 ? "low" : number < 8 ? "medium" : "high";
 
   return (
     <Button onClick={onClick} sx={{ padding: 0 }}>
       <Box
         sx={{
-          backgroundColor: colorMap[color],
+          backgroundColor: colorMap[number],
           border: isSelected ? 4 : 0,
           width: 70,
           height: 70,
@@ -31,9 +29,7 @@ function NumeredBox({ number, isSelected, onClick }) {
           borderRadius: 10,
         }}
       >
-        <Typography
-          sx={{ color: "white", fontWeight: "bold", fontSize: 25 }}
-        >
+        <Typography sx={{ color: "white", fontWeight: "bold", fontSize: 25 }}>
           {number}
         </Typography>
       </Box>
