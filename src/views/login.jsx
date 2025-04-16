@@ -20,6 +20,7 @@ import { useNavigate } from "react-router-dom";
 import validator from "email-validator";
 import { useState } from "react";
 import AlertDialog from "./components/dialogs";
+import useUserStore from "../store/useUserStore";
 
 export default function Login() {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -36,7 +37,8 @@ export default function Login() {
 
   const navigate = useNavigate();
   const [showAlert, setShowAlert] = useState(false);
-  const [email, setEmail] = useState("");
+  const email = useUserStore((state) => state.email);
+  const setEmail = useUserStore((state) => state.setEmail);
   const [password, setPassword] = useState("");
 
   const handleClick = () => {
@@ -138,7 +140,9 @@ export default function Login() {
           display: "flex",
         }}
       >
-        {showAlert && <AlertDialog text={"Insira um e-mail e senha válidos"}></AlertDialog>}
+        {showAlert && (
+          <AlertDialog text={"Insira um e-mail e senha válidos"}></AlertDialog>
+        )}
 
         <ButtonSend
           color={"#cca926"}
