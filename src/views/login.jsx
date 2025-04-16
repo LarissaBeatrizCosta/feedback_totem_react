@@ -17,6 +17,8 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import ButtonSend from "./components/buttonSend";
 import { useNavigate } from "react-router-dom";
+import validator from "email-validator";
+import { useState } from "react";
 
 export default function Login() {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -32,6 +34,9 @@ export default function Login() {
   };
 
   const navigate = useNavigate();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
     <Container
@@ -75,7 +80,13 @@ export default function Login() {
         }}
       >
         <EmailIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
-        <TextField label="E-mail" variant="standard" fullWidth />
+        <TextField
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          label="E-mail"
+          variant="standard"
+          fullWidth
+        />
       </Box>
 
       <Box
@@ -89,6 +100,8 @@ export default function Login() {
         <FormControl fullWidth variant="standard">
           <InputLabel htmlFor="standard-adornment-password">Senha</InputLabel>
           <Input
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             id="standard-adornment-password"
             type={showPassword ? "text" : "password"}
             endAdornment={
@@ -117,7 +130,9 @@ export default function Login() {
           color={"#cca926"}
           text={"Entrar"}
           onClick={() => {
-            navigate("/");
+            if (validator.validate(email) && password !== "") {
+              navigate("/");
+            }
           }}
           fontSize={"20px"}
         ></ButtonSend>
