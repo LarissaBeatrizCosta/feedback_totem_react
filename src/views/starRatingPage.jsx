@@ -1,10 +1,10 @@
 import { Stack, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import StarsRow from "./components/starsRow";
 import ButtonSend from "./components/buttonSend";
 import useRatingStore from "../store/useStarsStore";
 import { useState } from "react";
 import AlertDialog from "./components/dialogs";
+import StarRate from "./components/starRate";
 
 export default function StarRating() {
   const navigation = useNavigate();
@@ -43,28 +43,20 @@ export default function StarRating() {
   };
 
   return (
-    <Stack spacing={2} sx={{ alignItems: "center", margin: 10 }}>
+    <Stack spacing={2} sx={{ alignItems: "center" }}>
       <Typography sx={{ typography: "h1" }}>
         Ambiente do Posto de Atendimento
       </Typography>
-      <StarsRow
-        value={environmentRating}
-        onChange={(e) => setEnvironmentRating(e.target.value)}
-      />
+      <StarRate value={environmentRating} onStarClick={setEnvironmentRating} />
 
       <Typography sx={{ typography: "h1" }}>
         Atendimento dos colaboradores
       </Typography>
-      <StarsRow
-        value={collaboratorRating}
-        onChange={(e) => setCollaboratorRating(e.target.value)}
-      />
+      <StarRate value={collaboratorRating} onStarClick={setCollaboratorRating} />
 
       <Typography sx={{ typography: "h1" }}>Tempo de Espera</Typography>
-      <StarsRow
-        value={timeRating}
-        onChange={(e) => setTimeRating(e.target.value)}
-      />
+      <StarRate value={timeRating} onStarClick={setTimeRating} />
+
       {showAlert && (
         <AlertDialog text={"Escolha uma nota de 1 a 5"}></AlertDialog>
       )}
