@@ -4,6 +4,8 @@ import { formatCpf } from "../utils/cpfFormatter";
 const useRegisterCpf = create((set, get) => ({
   cpfUser: "",
 
+  setCpf: (value) => set({ cpfUser: value }),
+
   setCpfUser: (value) => {
     const digitsOnly = get().cpfUser.replace(/\D/g, "") + value;
     let formattedCpf = formatCpf(digitsOnly);
