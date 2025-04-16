@@ -65,7 +65,9 @@ export default function StarRating() {
         value={timeRating}
         onChange={(e) => setTimeRating(e.target.value)}
       />
-      {showAlert && <AlertDialog text={'Escolha uma nota de 1 a 5'}></AlertDialog>}
+      {showAlert && (
+        <AlertDialog text={"Escolha uma nota de 1 a 5"}></AlertDialog>
+      )}
 
       <ButtonSend
         text={"Enviar"}
@@ -73,6 +75,7 @@ export default function StarRating() {
         onClick={() => {
           handleClick();
         }}
+        fontSize={"30px"}
       />
     </Stack>
   );

@@ -21,15 +21,15 @@ function NumeredBox({ number, isSelected, onClick }) {
         sx={{
           backgroundColor: colorMap[number],
           border: isSelected ? 4 : 0,
-          width: 70,
-          height: 70,
+          width: 58,
+          height: 62,
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          borderRadius: 10,
+          borderRadius: 4,
         }}
       >
-        <Typography sx={{ color: "white", fontWeight: "bold", fontSize: 25 }}>
+        <Typography sx={{ color: "white", fontWeight: "bold", fontSize: 35 }}>
           {number}
         </Typography>
       </Box>

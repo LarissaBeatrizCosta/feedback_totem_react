@@ -5,8 +5,8 @@ import useStarsStore from "../store/useStarsStore";
 import useRatingStore from "../store/useRatingStore";
 import useRegisterCpf from "../store/useRegisterCpfStore";
 import useCommentStore from "../store/useCommentStore";
-import useTotalRatings from "../store/useTotalRatingsStore";
 import RateModel from "../models/rate";
+import useTotalRatings from "../store/useTotalRatingsStore";
 
 export default function Comment() {
   const navigate = useNavigate();
@@ -18,15 +18,8 @@ export default function Comment() {
   const starTime = useStarsStore((state) => state.starTimeRating);
   const cpf = useRegisterCpf((state) => state.cpfUser);
   const comment = useCommentStore((state) => state.comment);
+  const setComment = useCommentStore((state) => state.setComment);
   const setListRatings = useTotalRatings((state) => state.setTotalRatingsList);
-  const list = useTotalRatings((state) => state.totalRatings);
-
-  const printItems = () => {
-    console.log("Itens na lista totalRatings:");
-    list.forEach((item, index) => {
-      console.log(`Índice ${index}:`, item);
-    });
-  };
 
   const handleCLick = () => {
     const finalRating = new RateModel({
@@ -44,10 +37,6 @@ export default function Comment() {
 
   return (
     <Stack>
-      <div>
-        <h1>Lista de Avaliações</h1>
-        <button onClick={printItems}>Imprimir Itens</button>
-      </div>{" "}
       <Box
         sx={{ display: "flex", justifyContent: "flex-end", marginTop: "8%" }}
       >
@@ -74,6 +63,7 @@ export default function Comment() {
         >
           <TextField
             value={comment}
+            onChange={(e) => setComment(e.target.value)}
             sx={{ marginTop: "20px" }}
             fullWidth
             multiline

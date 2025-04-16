@@ -24,9 +24,13 @@ export const materialTheme = createTheme({
     },
 
     h2Yellow: {
-      fontSize: "25px",
+      fontSize: "45px",
       fontWeight: medium,
       color: "#f4d03f",
+    },
+    h2Large: {
+      fontSize: "45px",
+      fontWeight: medium,
     },
   },
 });

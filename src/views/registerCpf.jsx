@@ -26,14 +26,17 @@ export default function RegisterCpf() {
   return (
     <Stack sx={{ gap: 4, alignItems: "center", paddingTop: 8 }}>
       <CpfInput></CpfInput>
-      {showAlert && <AlertDialog text={"Por favor, Digite um CPF válido!"}></AlertDialog>}
+      {showAlert && (
+        <AlertDialog text={"Por favor, Digite um CPF válido!"}></AlertDialog>
+      )}
 
       <ButtonSend
-        text={"ENVIAR"}
+        text={"Enviar"}
         color={"#cca926"}
         onClick={() => {
           handleClick();
         }}
+        fontSize={"30px"}
       ></ButtonSend>
     </Stack>
   );

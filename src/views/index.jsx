@@ -31,6 +31,7 @@ function Home() {
     <Stack>
       <Typography
         sx={{
+          paddingTop: 25,
           typography: "h1",
           textAlign: "start",
           paddingBottom: 4,
@@ -53,10 +54,11 @@ function Home() {
 
       {showAlert && <AlertDialog text={"Escolha um valor"}></AlertDialog>}
 
-      <Stack sx={{ alignItems: "center", paddingTop: 4 }}>
+      <Stack sx={{ alignItems: "center", paddingTop: 20 }}>
         <ButtonSend
           text={"Enviar"}
           color="rgba(25, 118, 210)"
+          fontSize={"30px"}
           onClick={() => {
             handleClick();
           }}
