@@ -32,5 +32,9 @@ export const materialTheme = createTheme({
       fontSize: "45px",
       fontWeight: medium,
     },
+    h3: {
+      fontSize: "25px",
+      fontWeight: medium,
+    },
   },
 });

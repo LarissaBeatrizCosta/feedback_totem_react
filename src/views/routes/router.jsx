@@ -6,11 +6,20 @@ import UserCpf from "../userCpf";
 import Feedback from "../feedback";
 import RegisterCpf from "../registerCpf";
 import Comment from "../comment";
+import Login from "../login";
 
 export default function AppRouter() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route
+        path="/Login"
+        element={
+          <ProtectedRoute>
+            <Login/>
+          </ProtectedRoute>
+        }
+      />
       <Route
         path="/"
         element={

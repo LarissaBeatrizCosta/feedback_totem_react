@@ -1,7 +1,7 @@
 import { Stack } from "@mui/material";
 import smallImage from "../../../assets/images/desenho.png";
 import logoImage from "../../../assets/images/logo.png";
-
+import { useNavigate } from "react-router-dom";
 import bg from "../../../assets/images/bg.png";
 
 /**
@@ -16,6 +16,8 @@ import bg from "../../../assets/images/bg.png";
  * @returns {React.ReactElement}
  */
 const ImageBackground = ({ showLogo = true, children }) => {
+  const navigate = useNavigate();
+
   return (
     <Stack
       sx={{
@@ -51,11 +53,13 @@ const ImageBackground = ({ showLogo = true, children }) => {
       )}
 
       <img
+        onDoubleClick={() => {
+          navigate("/Login");
+        }}
         src={smallImage}
         alt="simbolo"
         style={{
           position: "absolute",
-          zIndex: -1,
           width: "190px",
           height: "160px",
           right: "0",

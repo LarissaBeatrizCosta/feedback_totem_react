@@ -23,30 +23,30 @@ function App() {
   const setCpf = useRegisterCpf((state) => state.setCpf);
   const setComment = useCommentStore((state) => state.setComment);
 
-  useEffect(() => {
-    let time;
+  // useEffect(() => {
+  //   let time;
 
-    function doSomething() {
-      setRating(null);
-      setEnvironment(null);
-      setCollaborator(null);
-      setTime(null);
-      setCpf("");
-      setComment("");
-      navigate("/");
-    }
-    function resetTimer() {
-      clearTimeout(time);
-      time = setTimeout(doSomething, 5000);
-    }
-    window.onload = resetTimer;
-    document.onmousemove = resetTimer;
-    document.onkeydown = resetTimer;
-  },[]);
+  //   function doSomething() {
+  //     setRating(null);
+  //     setEnvironment(null);
+  //     setCollaborator(null);
+  //     setTime(null);
+  //     setCpf("");
+  //     setComment("");
+  //     navigate("/");
+  //   }
+  //   function resetTimer() {
+  //     clearTimeout(time);
+  //     time = setTimeout(doSomething, 5000);
+  //   }
+  //   window.onload = resetTimer;
+  //   document.onmousemove = resetTimer;
+  //   document.onkeydown = resetTimer;
+  // },[]);
 
   return (
     <ThemeProvider theme={materialTheme}>
-      <ImageBackground showLogo={location === "/StarRating" ? false : true}>
+      <ImageBackground showLogo={location === "/StarRating" || location === "/Login" ? false : true}>
         <AppRouter />
       </ImageBackground>
     </ThemeProvider>
