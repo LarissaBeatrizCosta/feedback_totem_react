@@ -19,6 +19,7 @@ import ButtonSend from "./components/buttonSend";
 import { useNavigate } from "react-router-dom";
 import validator from "email-validator";
 import { useState } from "react";
+import AlertDialog from "./components/dialogs";
 
 export default function Login() {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -34,9 +35,20 @@ export default function Login() {
   };
 
   const navigate = useNavigate();
-
+  const [showAlert, setShowAlert] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const handleClick = () => {
+    if (validator.validate(email) && password !== "") {
+      navigate("/");
+    } else {
+      setShowAlert(true);
+      setTimeout(() => {
+        setShowAlert(false);
+      }, 4000);
+    }
+  };
 
   return (
     <Container
@@ -126,13 +138,13 @@ export default function Login() {
           display: "flex",
         }}
       >
+        {showAlert && <AlertDialog text={"Insira um e-mail e senha válidos"}></AlertDialog>}
+
         <ButtonSend
           color={"#cca926"}
           text={"Entrar"}
           onClick={() => {
-            if (validator.validate(email) && password !== "") {
-              navigate("/");
-            }
+            handleClick();
           }}
           fontSize={"20px"}
         ></ButtonSend>
