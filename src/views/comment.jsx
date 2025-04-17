@@ -1,47 +1,12 @@
 import { Box, Container, Stack, TextField, Typography } from "@mui/material";
 import ButtonSend from "./components/buttonSend";
-import { useNavigate } from "react-router-dom";
-import useStarsStore from "../store/useStarsStore";
-import useRatingStore from "../store/useRatingStore";
-import useRegisterCpf from "../store/useRegisterCpfStore";
 import useCommentStore from "../store/useCommentStore";
-import RateModel from "../models/rate";
-import useTotalRatings from "../store/useTotalRatingsStore";
-import RateService from "../services/ratesService";
+import useSaveRate from "../hooks/useSaveRate";
 
 export default function Comment() {
-  const navigate = useNavigate();
-  const rating = useRatingStore((state) => state.recommendationRating);
-  const starEnvironment = useStarsStore((state) => state.starEnvironmentRating);
-  const starCollaborator = useStarsStore(
-    (state) => state.starCollaboratorRating
-  );
-  const starTime = useStarsStore((state) => state.starTimeRating);
-  const cpf = useRegisterCpf((state) => state.cpfUser);
   const comment = useCommentStore((state) => state.comment);
   const setComment = useCommentStore((state) => state.setComment);
-  const setListRatings = useTotalRatings((state) => state.setTotalRatingsList);
-
-  const handleCLick = async () => {
-    const finalRating = new RateModel({
-      recommendation: rating,
-      location: starEnvironment,
-      collaborator: starCollaborator,
-      time: starTime,
-      comment: comment,
-      cpf: cpf,
-    });
-
-    try {
-      const success = await RateService.createRate(finalRating);
-      if (success) {
-        setListRatings(finalRating); 
-        navigate("/Feedback"); 
-      }
-    } catch (error) {
-      console.error("Erro ao salvar a avaliação", error);
-    }
-  };
+  const saveRate = useSaveRate();
 
   return (
     <Stack>
@@ -53,9 +18,7 @@ export default function Comment() {
           color={"green"}
           width={"15%"}
           height={"100%"}
-          onClick={() => {
-            handleCLick();
-          }}
+          onClick={saveRate}
         />
       </Box>
       <Stack sx={{ alignItems: "center" }}>
