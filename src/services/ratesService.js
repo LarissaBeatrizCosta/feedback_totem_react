@@ -1,4 +1,3 @@
-// ratesService.js
 import { ref, set } from "firebase/database";
 import { db } from "../services/connectionFirebase";
 import { v4 as uuidv4 } from "uuid";
