@@ -7,6 +7,7 @@ import useRegisterCpf from "../store/useRegisterCpfStore";
 import useCommentStore from "../store/useCommentStore";
 import RateModel from "../models/rate";
 import useTotalRatings from "../store/useTotalRatingsStore";
+import RateService from "../services/ratesService";
 
 export default function Comment() {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ export default function Comment() {
   const setComment = useCommentStore((state) => state.setComment);
   const setListRatings = useTotalRatings((state) => state.setTotalRatingsList);
 
-  const handleCLick = () => {
+  const handleCLick = async () => {
     const finalRating = new RateModel({
       recommendation: rating,
       location: starEnvironment,
@@ -31,8 +32,15 @@ export default function Comment() {
       cpf: cpf,
     });
 
-    setListRatings(finalRating);
-    navigate("/Feedback");
+    try {
+      const success = await RateService.createRate(finalRating);
+      if (success) {
+        setListRatings(finalRating); 
+        navigate("/Feedback"); 
+      }
+    } catch (error) {
+      console.error("Erro ao salvar a avaliação", error);
+    }
   };
 
   return (
