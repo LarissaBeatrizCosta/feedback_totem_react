@@ -18,7 +18,7 @@ function Home() {
   const [showAlert, setShowALert] = useState(false);
 
   const handleClick = () => {
-    recommendationRating != null
+    recommendationRating !== null
       ? navigation('/StarRating')
       : setShowALert(true);
   };

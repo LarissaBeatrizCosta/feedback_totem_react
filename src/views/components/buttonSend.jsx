@@ -19,7 +19,7 @@ export default function ButtonSend({
         height: height || '50px',
         borderRadius: '40px',
         fontWeight: 'bold',
-        fontSize: { fontSize } || '14px',
+        fontSize: fontSize || '14px',
       }}
     >
       {text}

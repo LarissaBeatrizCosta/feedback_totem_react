@@ -10,7 +10,7 @@ export default [
       sourceType: "module",
       parserOptions: {
         ecmaFeatures: {
-          jsx: true, 
+          jsx: true,
         },
       },
       globals: {
@@ -40,8 +40,9 @@ export default [
       "no-else-return": "warn",
       "no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
       "react/prop-types": "off",
+      "react/jsx-uses-react": "warn",
+      "react/jsx-uses-vars": "warn",
     },
   },
-  js.configs.recommended, 
-  
+  js.configs.recommended,
 ];

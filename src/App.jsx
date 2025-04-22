@@ -1,10 +1,10 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 import { ThemeProvider } from '@mui/material';
-import ImageBackground from "./views/components/ImageBackground/imageBackground";
-import { materialTheme } from "./consts/muiTheme";
-import AppRouter from "./views/routes/router";
-import { useLocation } from "react-router-dom";
-import useResetRatings from "./hooks/resetTotalRatings";
+import ImageBackground from './views/components/ImageBackground/imageBackground';
+import { materialTheme } from './consts/muiTheme';
+import AppRouter from './views/routes/router';
+import { useLocation } from 'react-router-dom';
+import useResetRatings from './hooks/resetTotalRatings';
 function App() {
   const location = useLocation().pathname;
   const resetRatings = useResetRatings();
@@ -28,7 +28,7 @@ function App() {
     <ThemeProvider theme={materialTheme}>
       <ImageBackground
         showLogo={
-          location === "/StarRating" || location === "/Login" ? false : true
+          location === '/StarRating' || location === '/Login' ? false : true
         }
       >
         <AppRouter />

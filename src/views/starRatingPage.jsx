@@ -52,7 +52,10 @@ export default function StarRating() {
       <Typography sx={{ typography: 'h1' }}>
         Atendimento dos colaboradores
       </Typography>
-      <StarRate value={collaboratorRating} onStarClick={setCollaboratorRating} />
+      <StarRate
+        value={collaboratorRating}
+        onStarClick={setCollaboratorRating}
+      />
 
       <Typography sx={{ typography: 'h1' }}>Tempo de Espera</Typography>
       <StarRate value={timeRating} onStarClick={setTimeRating} />
