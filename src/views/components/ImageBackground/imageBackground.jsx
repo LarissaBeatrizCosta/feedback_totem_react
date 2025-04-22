@@ -4,17 +4,6 @@ import logoImage from "../../../assets/images/logo.png";
 import { useNavigate } from "react-router-dom";
 import bg from "../../../assets/images/bg.png";
 
-/**
- * ImageBackground renders a background image with a logo in the top right corner.
- *
- * If `showLogo` is false, the logo will not be rendered.
- *
- * `children` will be rendered on top of the background image.
- *
- * @param {{ showLogo?: boolean, children: React.ReactNode }} props
- *
- * @returns {React.ReactElement}
- */
 const ImageBackground = ({ showLogo = true, children }) => {
   const navigate = useNavigate();
 
