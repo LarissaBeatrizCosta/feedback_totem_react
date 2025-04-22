@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { ThemeProvider } from '@mui/material';
+// eslint-disable-next-line max-len
 import ImageBackground from './views/components/ImageBackground/imageBackground';
 import { materialTheme } from './consts/muiTheme';
 import AppRouter from './views/routes/router';
