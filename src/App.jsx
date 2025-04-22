@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ThemeProvider } from "@mui/material";
+import { ThemeProvider } from '@mui/material';
 import ImageBackground from "./views/components/ImageBackground/imageBackground";
 import { materialTheme } from "./consts/muiTheme";
 import AppRouter from "./views/routes/router";

@@ -1,7 +1,7 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
 const useCommentStore = create((set) => ({
-  comment: "",
+  comment: '',
 
   setComment: (value) => set({ comment: value }),
 }));

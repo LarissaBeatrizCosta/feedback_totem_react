@@ -1,10 +1,10 @@
-import { Stack, Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import ButtonSend from "./components/buttonSend";
-import NumeredBoxList from "./components/numeredList";
-import useRatingStore from "../store/useRatingStore";
-import AlertDialog from "./components/dialogs";
-import { useState } from "react";
+import { Stack, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import ButtonSend from './components/buttonSend';
+import NumeredBoxList from './components/numeredList';
+import useRatingStore from '../store/useRatingStore';
+import AlertDialog from './components/dialogs';
+import { useState } from 'react';
 
 function Home() {
   const navigation = useNavigate();
@@ -19,7 +19,7 @@ function Home() {
 
   const handleClick = () => {
     recommendationRating != null
-      ? navigation("/StarRating")
+      ? navigation('/StarRating')
       : setShowALert(true);
   };
 
@@ -32,8 +32,8 @@ function Home() {
       <Typography
         sx={{
           paddingTop: 20,
-          typography: "h1",
-          textAlign: "start",
+          typography: 'h1',
+          textAlign: 'start',
           paddingBottom: 4,
           paddingLeft: 4,
         }}
@@ -45,20 +45,20 @@ function Home() {
         direction="row"
         spacing={4}
         sx={{
-          typography: "h2",
-          justifyContent: "center",
+          typography: 'h2',
+          justifyContent: 'center',
         }}
       >
         <NumeredBoxList onSelect={setRecommendationRating} />
       </Stack>
 
-      {showAlert && <AlertDialog text={"Escolha um valor"}></AlertDialog>}
+      {showAlert && <AlertDialog text={'Escolha um valor'}></AlertDialog>}
 
-      <Stack sx={{ alignItems: "center", paddingTop: 20 }}>
+      <Stack sx={{ alignItems: 'center', paddingTop: 20 }}>
         <ButtonSend
-          text={"Enviar"}
+          text={'Enviar'}
           color="rgba(25, 118, 210)"
-          fontSize={"30px"}
+          fontSize={'30px'}
           onClick={() => {
             handleClick();
           }}

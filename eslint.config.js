@@ -1,33 +1,47 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
+import js from "@eslint/js";
+import globals from "globals";
+import reactPlugin from "eslint-plugin-react";
 
 export default [
-  { ignores: ['dist'] },
   {
-    files: ['**/*.{js,jsx}'],
+    files: ["**/*.js", "**/*.jsx"],
     languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
+      ecmaVersion: 2022,
+      sourceType: "module",
       parserOptions: {
-        ecmaVersion: 'latest',
-        ecmaFeatures: { jsx: true },
-        sourceType: 'module',
+        ecmaFeatures: {
+          jsx: true, 
+        },
+      },
+      globals: {
+        ...globals.browser,
+        ...globals.es2021,
       },
     },
     plugins: {
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
+      react: reactPlugin,
     },
     rules: {
-      ...js.configs.recommended.rules,
-      ...reactHooks.configs.recommended.rules,
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
+      quotes: ["warn", "single"],
+      camelcase: "warn",
+      "max-len": ["warn", { code: 80 }],
+      curly: ["warn", "all"],
+      "no-useless-concat": "warn",
+      "prefer-template": "warn",
+      "no-useless-return": "warn",
+      "no-new-object": "warn",
+      "no-const-assign": "warn",
+      eqeqeq: ["warn", "always"],
+      "no-empty-function": "warn",
+      "no-duplicate-imports": "warn",
+      "prefer-const": "warn",
+      "no-setter-return": "warn",
+      "no-useless-constructor": "warn",
+      "no-else-return": "warn",
+      "no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+      "react/prop-types": "off",
     },
   },
-]
+  js.configs.recommended, 
+  
+];

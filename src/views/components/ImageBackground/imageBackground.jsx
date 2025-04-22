@@ -1,8 +1,8 @@
-import { Stack } from "@mui/material";
-import smallImage from "../../../assets/images/desenho.png";
-import logoImage from "../../../assets/images/logo.png";
-import { useNavigate } from "react-router-dom";
-import bg from "../../../assets/images/bg.png";
+import { Stack } from '@mui/material';
+import smallImage from '../../../assets/images/desenho.png';
+import logoImage from '../../../assets/images/logo.png';
+import { useNavigate } from 'react-router-dom';
+import bg from '../../../assets/images/bg.png';
 
 const ImageBackground = ({ showLogo = true, children }) => {
   const navigate = useNavigate();
@@ -10,21 +10,21 @@ const ImageBackground = ({ showLogo = true, children }) => {
   return (
     <Stack
       sx={{
-        position: "relative",
-        height: "100vh",
-        width: "100vw",
-        justifyContent: "center",
-        alignItems: "center",
+        position: 'relative',
+        height: '100vh',
+        width: '100vw',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
       <img
         src={bg}
         alt="bg"
         style={{
-          position: "absolute",
+          position: 'absolute',
           zIndex: -2,
-          width: "100%",
-          height: "100%",
+          width: '100%',
+          height: '100%',
         }}
       />
 
@@ -33,26 +33,26 @@ const ImageBackground = ({ showLogo = true, children }) => {
           src={logoImage}
           alt="Logo"
           style={{
-            position: "absolute",
+            position: 'absolute',
             zIndex: 0,
-            height: "15%",
-            top: "5%",
+            height: '15%',
+            top: '5%',
           }}
         />
       )}
 
       <img
         onDoubleClick={() => {
-          navigate("/Login");
+          navigate('/Login');
         }}
         src={smallImage}
         alt="simbolo"
         style={{
-          position: "absolute",
-          width: "190px",
-          height: "160px",
-          right: "0",
-          top: "0",
+          position: 'absolute',
+          width: '190px',
+          height: '160px',
+          right: '0',
+          top: '0',
         }}
       />
 

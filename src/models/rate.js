@@ -11,7 +11,7 @@ export default class RateModel {
     this.location = location ?? 0;
     this.collaborator = collaborator ?? 0;
     this.time = time ?? 0;
-    this.comment = comment ?? "";
-    this.cpf = cpf ?? "";
+    this.comment = comment ?? '';
+    this.cpf = cpf ?? '';
   }
 }

@@ -1,7 +1,7 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
 const useUserStore = create((set) => ({
-  email: "",
+  email: '',
   setEmail: (value) => set({ email: value }),
 }));
 export default useUserStore;

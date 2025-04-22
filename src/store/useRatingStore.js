@@ -1,4 +1,4 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
 const useRatingStore = create((set) => ({
   recommendationRating: null,

@@ -1,20 +1,20 @@
-import { Container, TextField, Grid } from "@mui/material";
-import CpfButtonInput from "../components/cpfButtonInput";
-import useRegisterCpf from "../../store/useRegisterCpfStore";
+import { Container, TextField, Grid } from '@mui/material';
+import CpfButtonInput from '../components/cpfButtonInput';
+import useRegisterCpf from '../../store/useRegisterCpfStore';
 
 export default function CpfInput() {
   const buttonsCpfInput = [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "0",
-    "⌫",
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '0',
+    '⌫',
   ];
 
   const cpfValue = useRegisterCpf((state) => state.cpfUser);
@@ -26,15 +26,15 @@ export default function CpfInput() {
   return (
     <Container
       style={{
-        border: "4px solid #1E6F9F",
-        height: "45vh",
-        width: "60vh",
-        borderRadius: "40px",
+        border: '4px solid #1E6F9F',
+        height: '45vh',
+        width: '60vh',
+        borderRadius: '40px',
         padding: 0,
         paddingTop: 5,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
       }}
     >
       <TextField
@@ -42,8 +42,8 @@ export default function CpfInput() {
         variant="standard"
         value={cpfValue}
         sx={{
-          "& .MuiInput-input": {
-            textAlign: "right",
+          '& .MuiInput-input': {
+            textAlign: 'right',
           },
         }}
         slotProps={{
@@ -51,12 +51,12 @@ export default function CpfInput() {
             readOnly: true,
             disableUnderline: true,
             style: {
-              borderBottom: "4px solid #1E6F9F",
-              paddingRight: "20px",
-              textAlign: "right",
-              fontSize: "40px",
-              fontWeight: "bold",
-              color: "#1E6F9F",
+              borderBottom: '4px solid #1E6F9F',
+              paddingRight: '20px',
+              textAlign: 'right',
+              fontSize: '40px',
+              fontWeight: 'bold',
+              color: '#1E6F9F',
             },
           },
         }}
@@ -65,22 +65,22 @@ export default function CpfInput() {
       <Grid
         container
         style={{
-          paddingLeft: "40px",
+          paddingLeft: '40px',
           marginTop: 20,
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 150px)",
-          alignItems: "center",
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 150px)',
+          alignItems: 'center',
         }}
       >
         {buttonsCpfInput.map((button, index) => {
           if (index === buttonsCpfInput.length - 2) {
             return (
               <>
-                <div style={{ visibility: "hidden" }}></div>
+                <div style={{ visibility: 'hidden' }}></div>
                 <CpfButtonInput
                   text={button}
                   onClick={() => {
-                    button === "⌫" ? deleteDigiteCpf() : setCpfUser(button);
+                    button === '⌫' ? deleteDigiteCpf() : setCpfUser(button);
                   }}
                 />
               </>
@@ -91,7 +91,7 @@ export default function CpfInput() {
               key={index}
               text={button}
               onClick={() => {
-                button === "⌫" ? deleteDigiteCpf() : setCpfUser(button);
+                button === '⌫' ? deleteDigiteCpf() : setCpfUser(button);
               }}
             />
           );

@@ -1,10 +1,10 @@
-import { Stack, Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import ButtonSend from "./components/buttonSend";
-import useRatingStore from "../store/useStarsStore";
-import { useState } from "react";
-import AlertDialog from "./components/dialogs";
-import StarRate from "./components/starRate";
+import { Stack, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import ButtonSend from './components/buttonSend';
+import useRatingStore from '../store/useStarsStore';
+import { useState } from 'react';
+import AlertDialog from './components/dialogs';
+import StarRate from './components/starRate';
 
 export default function StarRating() {
   const navigation = useNavigate();
@@ -33,7 +33,7 @@ export default function StarRating() {
       collaboratorRating !== null &&
       timeRating !== null
     ) {
-      navigation("/UserCpf");
+      navigation('/UserCpf');
     } else {
       setShowALert(true);
       setTimeout(() => {
@@ -43,31 +43,31 @@ export default function StarRating() {
   };
 
   return (
-    <Stack spacing={2} sx={{ alignItems: "center" }}>
-      <Typography sx={{ typography: "h1" }}>
+    <Stack spacing={2} sx={{ alignItems: 'center' }}>
+      <Typography sx={{ typography: 'h1' }}>
         Ambiente do Posto de Atendimento
       </Typography>
       <StarRate value={environmentRating} onStarClick={setEnvironmentRating} />
 
-      <Typography sx={{ typography: "h1" }}>
+      <Typography sx={{ typography: 'h1' }}>
         Atendimento dos colaboradores
       </Typography>
       <StarRate value={collaboratorRating} onStarClick={setCollaboratorRating} />
 
-      <Typography sx={{ typography: "h1" }}>Tempo de Espera</Typography>
+      <Typography sx={{ typography: 'h1' }}>Tempo de Espera</Typography>
       <StarRate value={timeRating} onStarClick={setTimeRating} />
 
       {showAlert && (
-        <AlertDialog text={"Escolha uma nota de 1 a 5"}></AlertDialog>
+        <AlertDialog text={'Escolha uma nota de 1 a 5'}></AlertDialog>
       )}
 
       <ButtonSend
-        text={"Enviar"}
+        text={'Enviar'}
         color="#cca926"
         onClick={() => {
           handleClick();
         }}
-        fontSize={"30px"}
+        fontSize={'30px'}
       />
     </Stack>
   );

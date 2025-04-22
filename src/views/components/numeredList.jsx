@@ -1,5 +1,5 @@
-import NumeredBox from "../components/numeredBox";
-import useRatingStore from "../../store/useRatingStore";
+import NumeredBox from '../components/numeredBox';
+import useRatingStore from '../../store/useRatingStore';
 
 function NumeredBoxList() {
   const { recommendationRating, setRecommendationRating: setRecommendationRating } = useRatingStore();

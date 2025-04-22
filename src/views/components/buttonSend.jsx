@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button } from '@mui/material';
 
 export default function ButtonSend({
   color,
@@ -12,14 +12,14 @@ export default function ButtonSend({
     <Button
       onClick={onClick}
       sx={{
-        textTransform: "none",
+        textTransform: 'none',
         backgroundColor: color,
-        color: "white",
-        width: width || "150px",
-        height: height || "50px",
-        borderRadius: "40px",
-        fontWeight: "bold",
-        fontSize: { fontSize } || "14px",
+        color: 'white',
+        width: width || '150px',
+        height: height || '50px',
+        borderRadius: '40px',
+        fontWeight: 'bold',
+        fontSize: { fontSize } || '14px',
       }}
     >
       {text}

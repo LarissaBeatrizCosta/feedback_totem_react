@@ -1,12 +1,12 @@
-import { Route, Routes } from "react-router-dom";
-import ProtectedRoute from "./protectedRoute";
-import Home from "../index";
-import StarRating from "../starRatingPage";
-import UserCpf from "../userCpf";
-import Feedback from "../feedback";
-import RegisterCpf from "../registerCpf";
-import Comment from "../comment";
-import Login from "../login";
+import { Route, Routes } from 'react-router-dom';
+import ProtectedRoute from './protectedRoute';
+import Home from '../index';
+import StarRating from '../starRatingPage';
+import UserCpf from '../userCpf';
+import Feedback from '../feedback';
+import RegisterCpf from '../registerCpf';
+import Comment from '../comment';
+import Login from '../login';
 
 export default function AppRouter() {
   return (

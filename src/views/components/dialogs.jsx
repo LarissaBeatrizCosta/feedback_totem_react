@@ -1,14 +1,14 @@
 // components/dialogs.js
-import Alert from "@mui/material/Alert";
-import Box from "@mui/material/Box";
+import Alert from '@mui/material/Alert';
+import Box from '@mui/material/Box';
 
 export default function AlertDialog({ text }) {
   return (
     <Box
       sx={{
-        position: "fixed",
+        position: 'fixed',
         bottom: 0,
-        width: "100%",
+        width: '100%',
       }}
     >
       <Alert variant="filled" severity="error">
