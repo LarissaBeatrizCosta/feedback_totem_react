@@ -21,6 +21,7 @@ import validator from 'email-validator';
 import { useState } from 'react';
 import AlertDialog from './components/dialogs';
 import useUserStore from '../store/useUserStore';
+import useResetRatings from '../hooks/resetTotalRatings';
 
 export default function Login() {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -40,9 +41,12 @@ export default function Login() {
   const email = useUserStore((state) => state.email);
   const setEmail = useUserStore((state) => state.setEmail);
   const [password, setPassword] = useState('');
+  const resetRatings = useResetRatings();
 
   const handleClick = () => {
+    
     if (validator.validate(email) && password !== '') {
+      resetRatings();
       navigate('/');
     } else {
       setShowAlert(true);
